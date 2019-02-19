@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
 
-    before_filter :require_login, only: [ :destroy ] 
+    before_action :require_login, only: [ :destroy ] 
 
     def show
         @tag = Tag.find(params[:id])
@@ -13,7 +13,7 @@ class TagsController < ApplicationController
     def destroy
         @tag = Tag.find(params[:id])
         @tag.destroy
-        flash.notice.succes = "Tag '#{@tag.name}' Deleted!"
+        flash.notice = "Tag '#{@tag.name}' Deleted!"
         redirect_to tags_path
     end
 end

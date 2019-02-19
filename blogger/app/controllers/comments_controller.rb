@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-    before_filter :require_login, only: [ :except ]
+    before_action :require_login, only: [ :except ]
 
     def create
         @comment = Comment.new(comment_params)
