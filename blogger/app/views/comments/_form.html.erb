@@ -1,15 +1,20 @@
-<h3>Post a Comment</h3>
+<div class="card">
+  <div class="card-header">
+    <h5>Post a Comment</h5>
+  </div>
+  <div class="card-body">
 
-<%= form_for [ @article, @comment ] do |f| %>
-  <p>
-    <%= f.label :author_name, "Your name" %><br/>
-    <%= f.text_field :author_name %>
-  </p>
-  <p>
-    <%= f.label :body , "Comment"%><br/>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit 'Submit' %>
-  </p>
-<% end %>
+    <%= form_for [ @article, @comment ] do |f| %>
+    <div class="form-group">
+      <%= f.label :author_name, "Your name" %>
+      <%= f.text_field :author_name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body , "Comment"%>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <%= f.submit 'Submit' , class: "btn btn-primary"%>
+    <% end %>
+
+  </div>
+</div>

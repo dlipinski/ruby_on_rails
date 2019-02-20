@@ -4,22 +4,45 @@
     <title>Blogger</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <p class="flash"><%= flash.notice %></p>
-    <%= yield %>
-    <hr>
-      <h6>
+    
+    <% if flash.notice %>
+      <p class="flash"><%= flash.notice %></p>
+    <% end %>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+      <a class="navbar-brand" href="#">Blogger</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <%= link_to "All articles", articles_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "All tags", tags_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
         <% if logged_in? %>
-          <%= "Logged in as #{current_user.email}" %>
-          <%= link_to "(logout)", logout_path %>
+          <%= link_to "#{current_user.email} - logout", logout_path, class: "btn btn-outline-warning" %>
         <% else %>
-          <%= link_to "(login)", login_path %>
+          <%= link_to "login", login_path, class: "btn btn-outline-success" %>
         <% end %>
-      </h6>
+        </div>
+      </div>
+    </nav>
+    <main role="main" class="container">
+    <%= yield %>
+    </main>
+
+
   </body>
 </html>

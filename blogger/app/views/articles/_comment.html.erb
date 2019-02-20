@@ -1,6 +1,10 @@
-<div>
-  <h6>Comment by <i><%= comment.author_name %></i></h6>
-  <p class="comment"><%= comment.body %></p>
-  <p>Posted <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %> later</p>
 
+<div class="card mb-1">
+  <div class="card-header">
+    <h6>Comment by <i><%= comment.author_name %></i></h6>
+  </div>
+  <div class="card-body">
+    <p><%= comment.body %></p>
+    <p class="text-muted">Posted <%= distance_of_time_in_words(comment.article.created_at, comment.created_at) %> later</p>
+  </div>
 </div>
