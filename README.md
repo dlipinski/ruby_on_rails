@@ -1,6 +1,6 @@
 # ruby_on_rails
 
-Starting learning Sinatra as introduction to Ruby on Rails
+Starting learning Ruby on Rails
 
 Done some toutorials with examples, in this order:
 
